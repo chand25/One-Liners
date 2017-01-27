@@ -8,6 +8,7 @@ var methodOverride = require('method-override');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+//var show = require('./routes/show');
 
 var app = express();
 // override with POST having ?_method=DELETE
@@ -26,6 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+//app.use('/:id', show);
 /*app.listen(3005, function(){
   console.log("hello world")
 })*/

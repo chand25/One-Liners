@@ -40,6 +40,15 @@ router.delete('/:id', function(req, res, next) {
   });
 });
 
-
+router.get('/:id', function(req, res, next) {
+  models.User.findById(req.params.id).then(function(user) {
+    if(!user) {
+            var err = new Error('Not Found');
+            err.status = 404;
+            next(err);
+      } else
+       res.render('users/show/', { user: user });
+  });
+});
 
 module.exports = router;
