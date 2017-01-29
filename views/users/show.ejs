@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title></title>
+    <title><%= title %></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -22,12 +22,20 @@
                         <h4><%=user.dob%></h4>
                   </div>
 
-        <form action="<%= `/users/${user.id}?_method=DELETE` %>" method="POST">
-             <button class="btn btn-danger btn-sm">
-         <i class="fa fa-trash-o fa-lg"></i> Delete</button>
-    </form>
+                  <form action="<%= `/users/${user.id}?_method=DELETE` %>" method="POST">
+                      <button class="btn btn-danger btn-sm">
+                         <i class="fa fa-trash-o fa-lg"></i> Delete
+                     </button>
+                  </form>
 
-  </div>
+                  <a href="<%=`/users/${user.id}/edit`%>/">
+                      <button class="btn btn-primary btn-sm">
+                          <i class="fa fa-pencil-square-o fa-lg"></i> Edit
+                      </button>
+                  </a>
+
+
+    </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>

@@ -43,19 +43,34 @@ router.delete('/:id', function(req, res, next) {
 
 router.get('/:id', function(req, res, next) {
    models.User.findById(req.params.id).then(function(user) {
-      res.render('users/show', { user: user });
+      res.render('users/show', {
+        title: 'My Profile',
+        user: user,
+      });
     });
 });
-/*
-router.get('/:id', function(req, res, next) {
-  models.User.findById(req.params.id).then(function(user) {
-    if(!user) {
-            var err = new Error('Not Found Look at This');
-            err.status = 404;
-            next(err);
-      } else
-       res.render('users/show/', { user: user });
+
+
+router.get('/:id/edit', function(req, res, next) {
+models.User.findById(req.params.id).then(function(user) {
+    res.render('users/edit', {
+      title: 'Edit Profile',
+      user: user
+    });
   });
 });
-*/
+
+
+router.put('/:id', function(req, res, next){
+  models.User.update({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      dob: req.body.dob
+    }, {where: {id :req.params.id} }).then(function(){
+     res.redirect('/users/' + req.params.id);
+  });
+});
+
+
 module.exports = router;

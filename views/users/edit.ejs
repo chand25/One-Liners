@@ -6,13 +6,25 @@
   </head>
   <body>
     <h1>Welcome to fazbook</h1>
-    <form action="/users" method="POST" >
-      <label>First Name</label><input type="text" name="firstName" >
-      <label>Last Name</label><input type="text" name="lastName" >
-      <label>Email</label><input type="text" name="email" >
-      <label>Date of Birth</label><input type="text" name="dob" >
-      <button type="submit">Join</button>
-    </form>
+
+          <div>
+                <h3><span><%=user.firstName%> <%=user.lastName%></span></h3>
+                   <h4><%=user.email%></h4>
+                   <h4><%=user.dob%></h4>
+          </div>
+
+
+          <form action="<%= `/users/${user.id}?_method=PUT` %>" method="POST">
+                  <label>First Name</label><input type="text" name="firstName" >
+                  </br>
+                  <label>Last Name</label><input type="text" name="lastName" >
+                  </br>
+                  <label>Email</label><input type="text" name="email" >
+                  </br>
+                  <label>Date of Birth</label><input type="text" name="dob" >
+                   </br>
+                  <button type="submit">Edit All fields</button>
+          </form>
 
   </body>
 </html>
