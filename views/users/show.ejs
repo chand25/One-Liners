@@ -10,26 +10,27 @@
   </head>
   <body>
     <h1>Welcome to fazbook</h1>
+
+    <h2><span>Hi <%=user.firstName%></span></h2>
+    </br>
+    </br>
     <div>
 
-<!--
-        <ul>
-                      <li>
-                          <a href="users/<%= user[i]/edit%>">
-                          <div>
-                                  <span><%=user.firstName%></span>
-                                  <span><%=user.lastName%></span>
-                                  <span><%=user.email%></span>
-                                  <span><%=user.dob%></span>
-                            </div>
-                           </a>
-                        </li>
-          </ul>
--->
+                  <div>
+                        <h3><span><%=user.firstName%> <%=user.lastName%></span></h3>
+                        <h4><%=user.email%></h4>
+                        <h4><%=user.dob%></h4>
+                  </div>
+
+        <form action="<%= `/users/${user.id}?_method=DELETE` %>" method="POST">
+             <button class="btn btn-danger btn-sm">
+         <i class="fa fa-trash-o fa-lg"></i> Delete</button>
+    </form>
+
   </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-  </body>
+</body>
 </html>

@@ -40,15 +40,22 @@ router.delete('/:id', function(req, res, next) {
   });
 });
 
+
+router.get('/:id', function(req, res, next) {
+   models.User.findById(req.params.id).then(function(user) {
+      res.render('users/show', { user: user });
+    });
+});
+/*
 router.get('/:id', function(req, res, next) {
   models.User.findById(req.params.id).then(function(user) {
     if(!user) {
-            var err = new Error('Not Found');
+            var err = new Error('Not Found Look at This');
             err.status = 404;
             next(err);
       } else
        res.render('users/show/', { user: user });
   });
 });
-
+*/
 module.exports = router;
